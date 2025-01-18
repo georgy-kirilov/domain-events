@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using TopDrawer.DomainEvents;
 
 namespace TopDrawer.DomainEvents.EntityFrameworkCore;
 
-public sealed class PublishDomainEventsInterceptor(IDomainEventResolver domainEventResolver)
+public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver domainEventHandlerResolver)
     : SaveChangesInterceptor
 {
-    private readonly IDomainEventResolver _domainEventResolver = domainEventResolver;
+    private readonly IDomainEventHandlerResolver _domainEventHandlerResolver = domainEventHandlerResolver;
 
     public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(
         DbContextEventData eventData,
@@ -46,16 +45,18 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventResolver domainEv
     
     private async Task PublishEntityDomainEventsAsync(DomainEntity domainEntity, CancellationToken cancellationToken)
     {
-        foreach (var domainEvent in domainEntity.DomainEvents)
+        var domainEvents = domainEntity.DomainEvents.ToList();
+        
+        foreach (var domainEvent in domainEvents)
         {
-            var domainEventHandlers = _domainEventResolver.ResolveHandlers(domainEvent);
+            var domainEventHandlers = _domainEventHandlerResolver.ResolveHandlerInstances(domainEvent);
 
+            domainEntity.RemoveDomainEvent(domainEvent);
+            
             foreach (var domainEventHandler in domainEventHandlers)
             {
                 await ((dynamic)domainEventHandler).HandleAsync((dynamic)domainEvent, cancellationToken);
             }
         }
-        
-        domainEntity.ClearDomainEvents();
     }
 }

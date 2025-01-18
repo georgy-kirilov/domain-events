@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents.EntityFrameworkCore", "TopDrawer.DomainEvents.EntityFrameworkCore\TopDrawer.DomainEvents.EntityFrameworkCore.csproj", "{45EBD084-0C66-490D-AF9E-197C710A1EEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents.AspNetCore", "TopDrawer.DomainEvents.AspNetCore\TopDrawer.DomainEvents.AspNetCore.csproj", "{F281500B-BF15-4BD7-99D4-04057D210BFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{45EBD084-0C66-490D-AF9E-197C710A1EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45EBD084-0C66-490D-AF9E-197C710A1EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45EBD084-0C66-490D-AF9E-197C710A1EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

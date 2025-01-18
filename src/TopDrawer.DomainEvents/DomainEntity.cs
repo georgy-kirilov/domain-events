@@ -4,12 +4,12 @@ namespace TopDrawer.DomainEvents
 {
     public abstract class DomainEntity
     {
-        private readonly List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
+        private readonly HashSet<IDomainEvent> _domainEvents = new HashSet<IDomainEvent>();
         
-        public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents;
+        public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents;
     
         protected void RaiseDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
-    
-        internal void ClearDomainEvents() => _domainEvents.Clear();
+        
+        internal void RemoveDomainEvent(IDomainEvent domainEvent) => _domainEvents.Remove(domainEvent);
     }
 }
