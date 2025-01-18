@@ -24,12 +24,17 @@ namespace TopDrawer.DomainEvents
             where TDomainEvent : IDomainEvent
             where TDomainEventHandler : IDomainEventHandler<TDomainEvent>
         {
-            if (!_handlerTypesByEventType.ContainsKey(typeof(TDomainEvent)))
+            Add(typeof(TDomainEvent), typeof(TDomainEventHandler));
+        }
+        
+        internal void Add(Type eventType, Type handlerType)
+        {
+            if (!_handlerTypesByEventType.ContainsKey(eventType))
             {
-                _handlerTypesByEventType.Add(typeof(TDomainEvent), new HashSet<Type>());
+                _handlerTypesByEventType.Add(eventType, new HashSet<Type>());
             }
             
-            _handlerTypesByEventType[typeof(TDomainEvent)].Add(typeof(TDomainEventHandler));
+            _handlerTypesByEventType[eventType].Add(handlerType);
         }
     }
 }

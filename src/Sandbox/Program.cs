@@ -11,14 +11,11 @@ builder.Services.AddDbContext<AppDbContext>((sp, x) =>
     x.UseSqlServer(
         "Server=localhost,1434; Database=domainevents; User Id=sa; Password=Qwerty1@; TrustServerCertificate=True;");
 
-    x.AddInterceptors(new PublishDomainEventsInterceptor(sp.GetRequiredService<IDomainEventHandlerResolver>()));
+    x.AddInterceptors(
+        new PublishDomainEventsInterceptor(sp.GetRequiredService<IDomainEventHandlerResolver>()));
 });
 
-builder.Services.AddDomainEventHandlers(x =>
-{
-    x.Add<CardStatusChangedDomainEvent, CardStatusChangedDomainEventHandler>();
-    x.Add<CardStatusChangedDomainEvent, AnotherCardStatusChangedDomainEventHandler>();
-});
+builder.Services.AddDomainEventHandlersFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 
