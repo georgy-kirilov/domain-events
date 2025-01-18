@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Sandbox;
 using TopDrawer.DomainEvents;
+using TopDrawer.DomainEvents.Abstractions;
 using TopDrawer.DomainEvents.AspNetCore;
 using TopDrawer.DomainEvents.EntityFrameworkCore;
 

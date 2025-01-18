@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents", "TopDrawer.DomainEvents\TopDrawer.DomainEvents.csproj", "{4CEB11ED-DA1A-4C88-8B19-271BCCC65B10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents.Abstractions", "TopDrawer.DomainEvents.Abstractions\TopDrawer.DomainEvents.Abstractions.csproj", "{4CEB11ED-DA1A-4C88-8B19-271BCCC65B10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{4E5D2D55-3E28-4114-B065-F19DF5A442D7}"
 EndProject

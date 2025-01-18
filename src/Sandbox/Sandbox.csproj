@@ -11,7 +11,7 @@
     <ItemGroup>
       <ProjectReference Include="..\TopDrawer.DomainEvents.AspNetCore\TopDrawer.DomainEvents.AspNetCore.csproj" />
       <ProjectReference Include="..\TopDrawer.DomainEvents.EntityFrameworkCore\TopDrawer.DomainEvents.EntityFrameworkCore.csproj" />
-      <ProjectReference Include="..\TopDrawer.DomainEvents\TopDrawer.DomainEvents.csproj" />
+      <ProjectReference Include="..\TopDrawer.DomainEvents.Abstractions\TopDrawer.DomainEvents.Abstractions.csproj" />
     </ItemGroup>
 
     <ItemGroup>

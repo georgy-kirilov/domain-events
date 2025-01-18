@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace TopDrawer.DomainEvents
+namespace TopDrawer.DomainEvents.Abstractions
 {
     public sealed class DomainEventCollection : IEnumerable<IDomainEvent>
     {

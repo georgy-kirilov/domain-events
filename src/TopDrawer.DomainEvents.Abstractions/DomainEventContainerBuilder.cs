@@ -1,4 +1,4 @@
-namespace TopDrawer.DomainEvents
+namespace TopDrawer.DomainEvents.Abstractions
 {
     public sealed class DomainEventContainerBuilder
     {

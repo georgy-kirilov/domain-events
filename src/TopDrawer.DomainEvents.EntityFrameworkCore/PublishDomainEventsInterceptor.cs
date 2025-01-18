@@ -1,6 +1,7 @@
 using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using TopDrawer.DomainEvents.Abstractions;
 
 namespace TopDrawer.DomainEvents.EntityFrameworkCore;
 

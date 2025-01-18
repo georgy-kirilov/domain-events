@@ -1,4 +1,5 @@
 using TopDrawer.DomainEvents;
+using TopDrawer.DomainEvents.Abstractions;
 
 namespace Sandbox;
 

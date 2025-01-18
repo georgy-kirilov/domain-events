@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TopDrawer.DomainEvents
+namespace TopDrawer.DomainEvents.Abstractions
 {
     public interface IDomainEventHandlerResolver
     {

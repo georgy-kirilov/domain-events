@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TopDrawer.DomainEvents
+namespace TopDrawer.DomainEvents.Abstractions
 {
     internal sealed class DomainEventContainer
     {

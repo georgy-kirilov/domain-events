@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using TopDrawer.DomainEvents.Abstractions;
 
 namespace TopDrawer.DomainEvents.AspNetCore;
 
