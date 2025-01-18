@@ -7,9 +7,9 @@ public static class DomainEventHandlersRegistration
 {
     public static IServiceCollection AddDomainEventHandlers(
         this IServiceCollection services,
-        Action<DomainEventServiceContainerBuilder> configureBuilder)
+        Action<DomainEventContainerBuilder> configureBuilder)
     {
-        var builder = new DomainEventServiceContainerBuilder();
+        var builder = new DomainEventContainerBuilder();
         configureBuilder(builder);
         RegisterDomainEventHandlers(builder.Container.GetAllHandlerTypes(), services, builder.Container);
         return services;

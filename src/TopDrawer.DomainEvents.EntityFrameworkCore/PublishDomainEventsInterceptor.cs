@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
@@ -26,9 +27,9 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver d
         while (true)
         {
             var entities = context.ChangeTracker
-                .Entries<DomainEntity>()
+                .Entries<IHaveDomainEvents>()
                 .Select(entry => entry.Entity)
-                .Where(entity => entity.DomainEvents.Count > 0)
+                .Where(entity => entity.GetDomainEvents().Count > 0)
                 .ToList();
             
             if (entities.Count == 0)
@@ -43,16 +44,16 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver d
         }
     }
     
-    private async Task PublishEntityDomainEventsAsync(DomainEntity domainEntity, CancellationToken cancellationToken)
+    private async Task PublishEntityDomainEventsAsync(IHaveDomainEvents entity, CancellationToken cancellationToken)
     {
-        var domainEvents = domainEntity.DomainEvents.ToList();
+        var domainEventsCopy = entity.GetDomainEvents().ToImmutableList();
         
-        foreach (var domainEvent in domainEvents)
+        foreach (var domainEvent in domainEventsCopy)
         {
             var domainEventHandlers = _domainEventHandlerResolver.ResolveHandlerInstances(domainEvent);
-
-            // Remove the domain event to prevent recursion if SaveChanges is called within a handler.
-            domainEntity.RemoveDomainEvent(domainEvent);
+            
+            // Remove the domain event to prevent recursion if SaveChanges is called within a handler
+            entity.GetDomainEvents().Remove(domainEvent);
             
             foreach (var domainEventHandler in domainEventHandlers)
             {

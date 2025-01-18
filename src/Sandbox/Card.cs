@@ -2,7 +2,7 @@ using TopDrawer.DomainEvents;
 
 namespace Sandbox;
 
-public class Card : DomainEntity
+public class Card : BaseEntity
 {
     public int Id { get; private set; }
 

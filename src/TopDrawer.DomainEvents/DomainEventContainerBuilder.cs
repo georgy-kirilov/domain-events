@@ -1,10 +1,10 @@
 namespace TopDrawer.DomainEvents
 {
-    public sealed class DomainEventServiceContainerBuilder
+    public sealed class DomainEventContainerBuilder
     {
-        public DomainEventContainer Container { get; } = new DomainEventContainer();
+        internal DomainEventContainer Container { get; } = new DomainEventContainer();
 
-        public DomainEventServiceContainerBuilder Add<TDomainEvent, TDomainEventHandler>()
+        public DomainEventContainerBuilder Add<TDomainEvent, TDomainEventHandler>()
             where TDomainEvent : IDomainEvent 
             where TDomainEventHandler : IDomainEventHandler<TDomainEvent>
         {

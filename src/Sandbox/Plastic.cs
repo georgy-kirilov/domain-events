@@ -1,6 +1,6 @@
 namespace Sandbox;
 
-public class Plastic
+public class Plastic : BaseEntity
 {
     public int Id { get; set; }
         
