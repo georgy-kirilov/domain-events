@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using TopDrawer.DomainEvents;
 
 namespace TopDrawer.DomainEvents.EntityFrameworkCore;
 

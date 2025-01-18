@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TopDrawer.DomainEvents
 {
     public abstract class DomainEntity

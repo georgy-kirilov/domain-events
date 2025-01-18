@@ -1,3 +1,5 @@
+using System;
+
 namespace TopDrawer.DomainEvents
 {
     public sealed class DomainEventOptions
