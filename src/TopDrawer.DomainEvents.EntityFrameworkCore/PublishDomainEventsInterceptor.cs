@@ -7,7 +7,7 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver d
     : SaveChangesInterceptor
 {
     private readonly IDomainEventHandlerResolver _domainEventHandlerResolver = domainEventHandlerResolver;
-
+    
     public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(
         DbContextEventData eventData,
         InterceptionResult<int> result,
@@ -51,6 +51,7 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver d
         {
             var domainEventHandlers = _domainEventHandlerResolver.ResolveHandlerInstances(domainEvent);
 
+            // Remove the domain event to prevent recursion if SaveChanges is called within a handler.
             domainEntity.RemoveDomainEvent(domainEvent);
             
             foreach (var domainEventHandler in domainEventHandlers)
