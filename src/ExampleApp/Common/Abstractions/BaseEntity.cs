@@ -1,7 +1,6 @@
-using TopDrawer.DomainEvents;
 using TopDrawer.DomainEvents.Abstractions;
 
-namespace Sandbox;
+namespace ExampleApp.Common.Abstractions;
 
 public abstract class BaseEntity : IHaveDomainEvents
 {
