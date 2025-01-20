@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{68F85F54
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandboxApp", "SandboxApp\SandboxApp.csproj", "{89AE009C-F822-4211-9153-A638B11E0F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandboxApp.Tests", "SandboxApp.Tests\SandboxApp.Tests.csproj", "{8B3E104B-832B-4902-B272-A6533F8D5929}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,5 +41,13 @@ Global
 		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AE009C-F822-4211-9153-A638B11E0F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AE009C-F822-4211-9153-A638B11E0F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AE009C-F822-4211-9153-A638B11E0F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AE009C-F822-4211-9153-A638B11E0F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B3E104B-832B-4902-B272-A6533F8D5929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3E104B-832B-4902-B272-A6533F8D5929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3E104B-832B-4902-B272-A6533F8D5929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3E104B-832B-4902-B272-A6533F8D5929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

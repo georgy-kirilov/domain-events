@@ -3,9 +3,9 @@ using TopDrawer.DomainEvents.Abstractions;
 
 namespace TopDrawer.DomainEvents.AspNetCore;
 
-internal sealed class AspNetCoreDomainEventHandlerResolver(
+internal sealed class AspNetCoreDomainEventHandlerInstanceResolver(
     IServiceProvider serviceProvider,
-    DomainEventServiceContainer domainEventServiceContainer) : IDomainEventHandlerResolver
+    DomainEventServiceContainer domainEventServiceContainer) : IDomainEventHandlerInstanceResolver
 {
     public IEnumerable<object> ResolveHandlerInstances(IDomainEvent domainEvent)
     {

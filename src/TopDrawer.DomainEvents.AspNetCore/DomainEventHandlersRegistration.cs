@@ -46,7 +46,7 @@ public static class DomainEventHandlersRegistration
         DomainEventServiceContainer serviceContainer)
     {
         services.AddSingleton(serviceContainer);
-        services.AddScoped<IDomainEventHandlerResolver, AspNetCoreDomainEventHandlerResolver>();
+        services.AddScoped<IDomainEventHandlerInstanceResolver, AspNetCoreDomainEventHandlerInstanceResolver>();
         
         foreach (var type in types)
         {

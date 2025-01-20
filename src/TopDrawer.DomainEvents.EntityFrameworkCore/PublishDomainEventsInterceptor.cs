@@ -5,7 +5,7 @@ using TopDrawer.DomainEvents.Abstractions;
 
 namespace TopDrawer.DomainEvents.EntityFrameworkCore;
 
-public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver domainEventHandlerResolver)
+public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerInstanceResolver domainEventHandlerInstanceResolver)
     : SaveChangesInterceptor
 {
     public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
@@ -59,7 +59,7 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver d
         
         foreach (var domainEvent in domainEventsCopy)
         {
-            var domainEventHandlers = domainEventHandlerResolver.ResolveHandlerInstances(domainEvent);
+            var domainEventHandlers = domainEventHandlerInstanceResolver.ResolveHandlerInstances(domainEvent);
             
             // Remove the domain event to prevent recursion if SaveChanges is called within a handler
             entity.GetDomainEvents().Remove(domainEvent);
