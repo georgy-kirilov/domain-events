@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace TopDrawer.DomainEvents.Abstractions
 {
-    internal sealed class DomainEventContainer
+    internal sealed class DomainEventServiceContainer
     {
         private readonly Dictionary<Type, HashSet<Type>> _handlerTypesByEventType =
             new Dictionary<Type, HashSet<Type>>();
@@ -18,13 +18,6 @@ namespace TopDrawer.DomainEvents.Abstractions
         {
             _handlerTypesByEventType.TryGetValue(domainEvent.GetType(), out var handlerTypes);
             return handlerTypes ?? Enumerable.Empty<Type>();
-        }
-        
-        internal void Add<TDomainEvent, TDomainEventHandler>()
-            where TDomainEvent : IDomainEvent
-            where TDomainEventHandler : IDomainEventHandler<TDomainEvent>
-        {
-            Add(typeof(TDomainEvent), typeof(TDomainEventHandler));
         }
         
         internal void Add(Type eventType, Type handlerType)

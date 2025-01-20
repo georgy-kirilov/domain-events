@@ -8,18 +8,18 @@ public static class DomainEventHandlersRegistration
 {
     public static IServiceCollection AddDomainEventHandlers(
         this IServiceCollection services,
-        Action<DomainEventContainerBuilder> configureBuilder)
+        Action<DomainEventServiceContainerBuilder> configureBuilder)
     {
-        var builder = new DomainEventContainerBuilder();
+        var builder = new DomainEventServiceContainerBuilder();
         configureBuilder(builder);
-        RegisterDomainEventHandlers(builder.Container.GetAllHandlerTypes(), services, builder.Container);
+        RegisterDomainEventHandlers(builder.ServiceContainer.GetAllHandlerTypes(), services, builder.ServiceContainer);
         return services;
     }
     
     public static IServiceCollection AddDomainEventHandlersFromAssemblyContaining<T>(
         this IServiceCollection services)
     {
-        RegisterDomainEventHandlers(typeof(T).Assembly.GetTypes(), services, new DomainEventContainer());
+        RegisterDomainEventHandlers(typeof(T).Assembly.GetTypes(), services, new DomainEventServiceContainer());
         return services;
     }
     
@@ -27,16 +27,16 @@ public static class DomainEventHandlersRegistration
         params Assembly[] assemblies)
     {
         var types = assemblies.SelectMany(a => a.GetTypes());
-        RegisterDomainEventHandlers(types, services, new DomainEventContainer());
+        RegisterDomainEventHandlers(types, services, new DomainEventServiceContainer());
         return services;
     }
     
     private static void RegisterDomainEventHandlers(
         IEnumerable<Type> types,
         IServiceCollection services,
-        DomainEventContainer container)
+        DomainEventServiceContainer serviceContainer)
     {
-        services.AddSingleton(container);
+        services.AddSingleton(serviceContainer);
         services.AddScoped<IDomainEventHandlerResolver, AspNetCoreDomainEventHandlerResolver>();
         
         foreach (var type in types)
@@ -63,7 +63,7 @@ public static class DomainEventHandlersRegistration
 
             var eventType = domainEventHandlerInterface.GenericTypeArguments.Single();
             services.AddScoped(type);
-            container.Add(eventType, type);
+            serviceContainer.Add(eventType, type);
         }
     }
 }

@@ -5,14 +5,14 @@ namespace TopDrawer.DomainEvents.AspNetCore;
 
 internal sealed class AspNetCoreDomainEventHandlerResolver(
     IServiceProvider serviceProvider,
-    DomainEventContainer domainEventContainer) : IDomainEventHandlerResolver
+    DomainEventServiceContainer domainEventServiceContainer) : IDomainEventHandlerResolver
 {
     private readonly IServiceProvider _serviceProvider = serviceProvider;
-    private readonly DomainEventContainer _domainEventContainer = domainEventContainer;
+    private readonly DomainEventServiceContainer _domainEventServiceContainer = domainEventServiceContainer;
 
     public IEnumerable<object> ResolveHandlerInstances(IDomainEvent domainEvent)
     {
-        var handlerTypes = _domainEventContainer.GetHandlerTypesForDomainEvent(domainEvent);
+        var handlerTypes = _domainEventServiceContainer.GetHandlerTypesForDomainEvent(domainEvent);
 
         foreach (var handlerType in handlerTypes)
         {
