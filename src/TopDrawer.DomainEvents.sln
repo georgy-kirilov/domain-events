@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents.Abstractions", "TopDrawer.DomainEvents.Abstractions\TopDrawer.DomainEvents.Abstractions.csproj", "{4CEB11ED-DA1A-4C88-8B19-271BCCC65B10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{4E5D2D55-3E28-4114-B065-F19DF5A442D7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents.EntityFrameworkCore", "TopDrawer.DomainEvents.EntityFrameworkCore\TopDrawer.DomainEvents.EntityFrameworkCore.csproj", "{45EBD084-0C66-490D-AF9E-197C710A1EEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDrawer.DomainEvents.AspNetCore", "TopDrawer.DomainEvents.AspNetCore\TopDrawer.DomainEvents.AspNetCore.csproj", "{F281500B-BF15-4BD7-99D4-04057D210BFC}"
@@ -17,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{68F85F54
 		nuget.config = nuget.config
 		README.md = README.md
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{C5C8397B-73F7-48C2-93BE-2B030F7D483E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +29,6 @@ Global
 		{4CEB11ED-DA1A-4C88-8B19-271BCCC65B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CEB11ED-DA1A-4C88-8B19-271BCCC65B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CEB11ED-DA1A-4C88-8B19-271BCCC65B10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E5D2D55-3E28-4114-B065-F19DF5A442D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E5D2D55-3E28-4114-B065-F19DF5A442D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E5D2D55-3E28-4114-B065-F19DF5A442D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E5D2D55-3E28-4114-B065-F19DF5A442D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45EBD084-0C66-490D-AF9E-197C710A1EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45EBD084-0C66-490D-AF9E-197C710A1EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45EBD084-0C66-490D-AF9E-197C710A1EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,9 +37,5 @@ Global
 		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F281500B-BF15-4BD7-99D4-04057D210BFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5C8397B-73F7-48C2-93BE-2B030F7D483E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5C8397B-73F7-48C2-93BE-2B030F7D483E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5C8397B-73F7-48C2-93BE-2B030F7D483E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5C8397B-73F7-48C2-93BE-2B030F7D483E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

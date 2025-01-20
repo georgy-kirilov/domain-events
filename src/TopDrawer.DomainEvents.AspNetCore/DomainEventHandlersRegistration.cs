@@ -12,17 +12,26 @@ public static class DomainEventHandlersRegistration
     {
         var builder = new DomainEventServiceContainerBuilder();
         configureBuilder(builder);
-        RegisterDomainEventHandlers(builder.ServiceContainer.GetAllHandlerTypes(), services, builder.ServiceContainer);
+            
+        RegisterDomainEventHandlers(
+            builder.ServiceContainer.GetAllHandlerTypes(),
+            services,
+            builder.ServiceContainer);
+            
         return services;
     }
-    
+        
     public static IServiceCollection AddDomainEventHandlersFromAssemblyContaining<T>(
         this IServiceCollection services)
     {
-        RegisterDomainEventHandlers(typeof(T).Assembly.GetTypes(), services, new DomainEventServiceContainer());
+        RegisterDomainEventHandlers(
+            typeof(T).Assembly.GetTypes(),
+            services,
+            new DomainEventServiceContainer());
+            
         return services;
     }
-    
+        
     public static IServiceCollection AddDomainEventHandlersFromAssemblies(this IServiceCollection services,
         params Assembly[] assemblies)
     {
@@ -30,7 +39,7 @@ public static class DomainEventHandlersRegistration
         RegisterDomainEventHandlers(types, services, new DomainEventServiceContainer());
         return services;
     }
-    
+        
     private static void RegisterDomainEventHandlers(
         IEnumerable<Type> types,
         IServiceCollection services,

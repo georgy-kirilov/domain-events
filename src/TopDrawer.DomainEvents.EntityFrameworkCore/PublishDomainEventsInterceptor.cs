@@ -8,8 +8,16 @@ namespace TopDrawer.DomainEvents.EntityFrameworkCore;
 public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver domainEventHandlerResolver)
     : SaveChangesInterceptor
 {
-    private readonly IDomainEventHandlerResolver _domainEventHandlerResolver = domainEventHandlerResolver;
-    
+    public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
+    {
+        if (eventData.Context is not null)
+        {
+            PublishDomainEventsAsync(eventData.Context, CancellationToken.None).GetAwaiter().GetResult();
+        }
+        
+        return base.SavedChanges(eventData, result);
+    }
+
     public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(
         DbContextEventData eventData,
         InterceptionResult<int> result,
@@ -51,7 +59,7 @@ public sealed class PublishDomainEventsInterceptor(IDomainEventHandlerResolver d
         
         foreach (var domainEvent in domainEventsCopy)
         {
-            var domainEventHandlers = _domainEventHandlerResolver.ResolveHandlerInstances(domainEvent);
+            var domainEventHandlers = domainEventHandlerResolver.ResolveHandlerInstances(domainEvent);
             
             // Remove the domain event to prevent recursion if SaveChanges is called within a handler
             entity.GetDomainEvents().Remove(domainEvent);

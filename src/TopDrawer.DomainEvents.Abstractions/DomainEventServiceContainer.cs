@@ -8,7 +8,7 @@ namespace TopDrawer.DomainEvents.Abstractions
     {
         private readonly Dictionary<Type, HashSet<Type>> _handlerTypesByEventType =
             new Dictionary<Type, HashSet<Type>>();
-
+        
         internal IEnumerable<Type> GetAllHandlerTypes()
         {
             return _handlerTypesByEventType.SelectMany(keyValuePair => keyValuePair.Value);
